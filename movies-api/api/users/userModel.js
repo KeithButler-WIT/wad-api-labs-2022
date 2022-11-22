@@ -13,6 +13,10 @@ UserSchema.statics.findByUserName = function (username) {
     return this.findOne({ username: username });
 };
 
+UserSchema.statics.findFavourite = function (favourites) {
+  return this.find({ favourites: favourites }).count() > 0;
+};
+
 UserSchema.methods.comparePassword = function (passw, callback) {
   bcrypt.compare(passw, this.password, (err, isMatch) => {
     if (err) {
