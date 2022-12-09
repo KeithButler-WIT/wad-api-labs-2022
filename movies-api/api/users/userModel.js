@@ -13,7 +13,7 @@ UserSchema.statics.findByUserName = function (username) {
     return this.findOne({ username: username });
 };
 
-UserSchema.statics.findFavourite = function (favourites) {
+UserSchema.methods.findFavourite = function (favourites) {
   return this.find({ favourites: favourites }).count() > 0;
 };
 
